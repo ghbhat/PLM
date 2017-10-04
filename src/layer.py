@@ -62,7 +62,7 @@ class Attention(object):
 class Language_Factored(object):
   def __init__(self, vis_dim, hid_dim, lang_vec, lang_dim=20, lang_activation=T.tanh, scale=0.08):
     self.lang_vec = lang_vec
-    self.L = sharedX(rng.randn(186, lang_dim) * scale, name="Language_Factored.L") # dimension reduction for linguistic vector
+    self.L = sharedX(rng.randn(97, lang_dim) * scale, name="Language_Factored.L") # dimension reduction for linguistic vector
     self.l_b = sharedX(numpy.zeros(lang_dim,), name="Language_Factored.l_b")
 
     # ouput vector is factored by language features and then reshaped to vis_dim*lang_dim
@@ -101,7 +101,7 @@ class Linear:
 class Linear_Biased:
   def __init__(self, vis_dim, hid_dim, lang_vec, lang_dim=30, lang_activation=T.nnet.sigmoid, scale=0.08):
     self.lang_vec = lang_vec
-    self.L = sharedX(rng.randn(186, lang_dim) * scale, name="Linear_Biased.L") # dimension reduction for linguistic vector
+    self.L = sharedX(rng.randn(97, lang_dim) * scale, name="Linear_Biased.L") # dimension reduction for linguistic vector
     self.l_b = sharedX(numpy.zeros(lang_dim,), name="Linear_Biased.l_b")
 
     self.W = sharedX(rng.randn(vis_dim, hid_dim) * scale, name="Linear_Biased.W")
